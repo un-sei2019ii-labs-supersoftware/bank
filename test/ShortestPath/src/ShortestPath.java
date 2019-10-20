@@ -5,8 +5,10 @@ public class ShortestPath {
     public static int initialVertex;
     public static int finalVertex;
     public static int [][] adjacencyMatrix;
-    public static int [][] pathMatrix;
+    public static int [][] weightsMatrix;
     public static int [] orderedColumns;
+    public static int [] path;
+    public static int verticesOnPath;
 
     public static void requestInput(){
         Scanner sc = new Scanner(System.in);
@@ -33,16 +35,16 @@ public class ShortestPath {
     }
 
     public static void calculateShortestPath(){
-        pathMatrix = new int [nVertex][nVertex];
+        weightsMatrix = new int [nVertex][nVertex];
         orderedColumns = new int [nVertex];
         orderedColumns[0] = initialVertex - 1;
 
         //anular  elementos de la fila del pivote, cada elemento anulado = -1
         cancelRow(orderedColumns[0]);
 
-         //copiar la columna inicial la cual representa el vértice inicial
+        //copiar la columna inicial la cual representa el vértice inicial
         for(int i = 0; i < nVertex; i++){
-            pathMatrix[i][orderedColumns[0]] = adjacencyMatrix[i][orderedColumns[0]];
+            weightsMatrix[i][orderedColumns[0]] = adjacencyMatrix[i][orderedColumns[0]];
         }
 
         //hacer los cálculos de las demás columnas
@@ -51,7 +53,7 @@ public class ShortestPath {
             orderedColumns[j] = findNextColumn(orderedColumns[j-1]);
 
             //hallar el pivote de la columna actual copiando el elemento de la columna anterior que se encuentra en la misma posicion-fila del pivote actual.
-            pathMatrix[orderedColumns[j]][orderedColumns[j]] = pathMatrix[orderedColumns[j]][orderedColumns[j-1]];
+            weightsMatrix[orderedColumns[j]][orderedColumns[j]] = weightsMatrix[orderedColumns[j]][orderedColumns[j-1]];
 
             //hacemos los cálculos respectivos para encontrar los elementos de la columna actual
             fillColumn(orderedColumns[j-1], orderedColumns[j]);
@@ -60,14 +62,14 @@ public class ShortestPath {
             cancelRow(orderedColumns[j]);
 
             //Hacemos notable el pivote para no sea utilizado en próximas comparaciones
-            pathMatrix[orderedColumns[j]][orderedColumns[j]] = pathMatrix[orderedColumns[j]][orderedColumns[j]] * - 1;
+            weightsMatrix[orderedColumns[j]][orderedColumns[j]] = weightsMatrix[orderedColumns[j]][orderedColumns[j]] * - 1;
         }
     }
 
     public static void cancelRow(int i){
         for(int j = 0; j < nVertex; j++){
-            if(pathMatrix[i][j] == 0)
-                pathMatrix[i][j] = -1;
+            if(weightsMatrix[i][j] == 0)
+                weightsMatrix[i][j] = -1;
         }
     }
 
@@ -75,8 +77,8 @@ public class ShortestPath {
         int min = 1073741824;
         int nextColumn = -1;
         for(int i = 0; i < nVertex; i++){
-            if(pathMatrix[i][j] > 0 && pathMatrix[i][j] < min){
-                min = pathMatrix[i][j];
+            if(weightsMatrix[i][j] > 0 && weightsMatrix[i][j] < min){
+                min = weightsMatrix[i][j];
                 nextColumn = i;
             }
         }
@@ -87,24 +89,67 @@ public class ShortestPath {
         int newWeight;
         int oldWeight;
         for(int i = 0; i < nVertex; i++){
-            if(pathMatrix[i][currentColumn] == 0){
-                newWeight = pathMatrix[currentColumn][currentColumn] + adjacencyMatrix[i][currentColumn];
-                oldWeight = pathMatrix[i][previousColumn];
+            if(weightsMatrix[i][currentColumn] == 0){
+                newWeight = weightsMatrix[currentColumn][currentColumn] + adjacencyMatrix[i][currentColumn];
+                oldWeight = weightsMatrix[i][previousColumn];
                 if(newWeight < oldWeight)
-                    pathMatrix[i][currentColumn] = newWeight;
+                    weightsMatrix[i][currentColumn] = newWeight;
                 else
-                    pathMatrix[i][currentColumn] = oldWeight;
+                    weightsMatrix[i][currentColumn] = oldWeight;
             }
         }
     }
 
-    public static void printShortestPath(){
+    public static void findShortestPath(){
+        path = new int[nVertex];
+        verticesOnPath = 0;
+        int pivot;
 
+        //buscar el índice del vértice final en el arreglo de columnas ordenadas.
+        int index = findVertexIndex(finalVertex - 1);
+
+        path[verticesOnPath] = orderedColumns[index];
+        pivot = weightsMatrix[path[verticesOnPath]][path[verticesOnPath]] * -1;
+        verticesOnPath++;
+
+        while(index > 0){
+            index = index - 1;
+
+            if(pivot != weightsMatrix[path[verticesOnPath - 1]][orderedColumns[index]]){
+                index = index + 1;
+                path[verticesOnPath] = orderedColumns[index];
+                pivot = weightsMatrix[path[verticesOnPath]][path[verticesOnPath]] * -1;
+                verticesOnPath++;
+            }
+
+            if (index == 0) {
+                path[verticesOnPath] = orderedColumns[index];
+                verticesOnPath++;
+            }
+        }
+    }
+
+    public static int findVertexIndex(int vertex){
+        for(int i = 0; i < nVertex; i++){
+            if(vertex == orderedColumns[i]){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public static void printShortestPath(){
+        System.out.print("\n\tEl camino mas corto es: ");
+        for(int i = verticesOnPath - 1; i >= 0; i--){
+            System.out.print(" -> " + (path[i] +1));
+        }
+        System.out.println("\n\ty su peso es: " + (weightsMatrix[finalVertex - 1][finalVertex - 1] * -1));
     }
 
     public static void main(String[] args) {
         requestInput();
         calculateShortestPath();
+        findShortestPath();
         printShortestPath();
     }
 }
