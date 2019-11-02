@@ -12,13 +12,11 @@ public class Logbook implements Serializable{
     @PrimaryKey
     public int ID_Logbook;
 
-    @ForeignKey()
-
-    @ForeignKey(name = "Action")
+    @ForeignKey(entity = Action.class, parentColumns = "ID_Action", childColumns = "Action")
     public int Action;
 
-    @ColumnInfo(name = "Username")
-    public int Username;
+    @ForeignKey(entity = User.class, parentColumns = "Username", childColumns = "Username")
+    public String Username;
 
     @ColumnInfo(name = "Date")
     public Date Date;
@@ -36,14 +34,14 @@ public class Logbook implements Serializable{
     }
 
     public void setAction(int Action) {
-        this.Action = Aaction;
+        this.Action = Action;
     }
 
-    public int getUsername() {
+    public String getUsername() {
         return Username;
     }
 
-    public void setUsername(int Username) {
+    public void setUsername(String Username) {
         this.Username = Username;
     }
 
