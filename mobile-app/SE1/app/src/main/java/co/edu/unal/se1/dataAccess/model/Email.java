@@ -9,7 +9,7 @@ import java.sql.Date;
 @Entity
 public class Email implements Serializable{
     @PrimaryKey
-    public int User_Email;
+    public String User_Email;
 
     @ColumnInfo(name = "Password_Date")
     public Date Password_Date;
@@ -18,11 +18,11 @@ public class Email implements Serializable{
     public String State;
 
 
-    public int getUser_Email() {
+    public String getUser_Email() {
         return User_Email;
     }
 
-    public void setUser_Email(int User_Email) {
+    public void setUser_Email(String User_Email) {
         this.User_Email = User_Email;
     }
 

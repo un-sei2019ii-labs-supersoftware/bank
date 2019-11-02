@@ -2,42 +2,44 @@ package co.edu.unal.se1.dataAccess.model;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 import java.io.Serializable;
+import java.sql.Date;
 
 @Entity
 public class User implements Serializable {
 
     @PrimaryKey
-    public int id;
+    public int ID_User;
 
-    @ColumnInfo(name = "name")
-    public String name;
+    @ColumnInfo(name = "Username")
+    public String Username;
 
-    @ColumnInfo(name = "balance")
-    public double balance;
+    @ColumnInfo(name = "Name")
+    public String Name;
 
-    public int getId() {
-        return id;
-    }
+    @ColumnInfo(name = "Phone")
+    public int Phone;
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    @ForeignKey(entity = Document_Type.class, parentColumns = "ID_Document_Type", childColumns = "Document_Type")
+    public int Document_Type;
 
-    public String getName() {
-        return name;
-    }
+    @ColumnInfo(name = "Document_Number")
+    public int Document_Number;
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    @ForeignKey(entity = City.class, parentColumns = "ID_City", childColumns = "City")
+    public int City;
 
-    public double getBalance() {
-        return balance;
-    }
+    @ForeignKey(entity = Country.class, parentColumns = "ID_Country", childColumns = "Country")
+    public int Country;
 
-    public void setBalance(double balance) {
-        this.balance = balance;
-    }
+    @ForeignKey(entity = Email.class, parentColumns = "User_Email", childColumns = "Email")
+    public String Email;
+
+    @ForeignKey(entity = Account.class, parentColumns = "ID_Account", childColumns = "Account")
+    public int Account;
+
+    @ColumnInfo(name = "Creation_Day")
+    public Date Creation_Day;
 }
