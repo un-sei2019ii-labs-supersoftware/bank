@@ -23,7 +23,7 @@ import co.edu.unal.se1.dataAccess.model.Transaction_Type;
 import co.edu.unal.se1.dataAccess.model.Transactions;
 import co.edu.unal.se1.dataAccess.model.User;
 
-@androidx.room.Database(entities = {Account.class,User.class, Action.class, City.class, Country.class, Document_Type.class, Email.class, Logbook.class, Transaction_Type.class, Transactions.class}, version = 1)
+@androidx.room.Database(entities = {Account.class, User.class, Action.class, City.class, Country.class, Document_Type.class, Email.class, Logbook.class, Transaction_Type.class, Transactions.class}, version = 1)
 public abstract class Database extends RoomDatabase {
 
     public abstract UserDao userDao();
