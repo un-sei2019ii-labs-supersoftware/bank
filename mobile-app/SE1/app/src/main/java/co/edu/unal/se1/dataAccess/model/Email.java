@@ -15,9 +15,11 @@ public class Email implements Serializable{
     public String User_Email;
 
     @ColumnInfo(name = "Password_Date")
+    @NonNull
     public Long Password_Date;
 
     @ColumnInfo(name = "State")
+    @NonNull
     public String State;
 
 

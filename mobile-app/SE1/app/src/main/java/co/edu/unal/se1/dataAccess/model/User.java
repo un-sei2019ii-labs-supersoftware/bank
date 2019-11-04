@@ -1,5 +1,6 @@
 package co.edu.unal.se1.dataAccess.model;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
@@ -13,33 +14,43 @@ public class User implements Serializable {
     public int ID_User;
 
     @ColumnInfo(name = "Username")
+    @NonNull
     public String Username;
 
     @ColumnInfo(name = "Name")
+    @NonNull
     public String Name;
 
     @ColumnInfo(name = "Phone")
+    @NonNull
     public int Phone;
 
     @ForeignKey(entity = Document_Type.class, parentColumns = "ID_Document_Type", childColumns = "Document_Type")
+    @NonNull
     public int Document_Type;
 
     @ColumnInfo(name = "Document_Number")
+    @NonNull
     public int Document_Number;
 
     @ForeignKey(entity = City.class, parentColumns = "ID_City", childColumns = "City")
+    @NonNull
     public int City;
 
     @ForeignKey(entity = Country.class, parentColumns = "ID_Country", childColumns = "Country")
+    @NonNull
     public int Country;
 
     @ForeignKey(entity = Email.class, parentColumns = "User_Email", childColumns = "Email")
+    @NonNull
     public String Email;
 
     @ForeignKey(entity = Account.class, parentColumns = "ID_Account", childColumns = "Account")
+    @NonNull
     public int Account;
 
     @ColumnInfo(name = "Creation_Day")
+    @NonNull
     public Long Creation_Day;
 
     public int getID_User() {

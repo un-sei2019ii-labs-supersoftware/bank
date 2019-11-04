@@ -1,5 +1,6 @@
 package co.edu.unal.se1.dataAccess.model;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -11,6 +12,7 @@ public class Document_Type implements Serializable{
     public int ID_Document_Type;
 
     @ColumnInfo(name = "Document_Type")
+    @NonNull
     public String Document_Type;
 
     public int getID_Document_Type() {

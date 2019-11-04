@@ -1,5 +1,6 @@
 package co.edu.unal.se1.dataAccess.model;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
@@ -13,12 +14,15 @@ public class Logbook implements Serializable{
     public int ID_Logbook;
 
     @ForeignKey(entity = Action.class, parentColumns = "ID_Action", childColumns = "Action")
+    @NonNull
     public int Action;
 
     @ForeignKey(entity = User.class, parentColumns = "Username", childColumns = "Username")
+    @NonNull
     public String Username;
 
     @ColumnInfo(name = "Date")
+    @NonNull
     public Long Date;
 
     public int getID_Logbook() {

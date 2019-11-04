@@ -1,5 +1,6 @@
 package co.edu.unal.se1.dataAccess.model;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
@@ -13,24 +14,30 @@ public class Transactions implements Serializable{
     public int ID_Transaction;
 
     @ForeignKey(entity = Account.class, parentColumns = "ID_Account", childColumns = "Account1")
+    @NonNull
     public int Account1;
 
     @ForeignKey(entity = Account.class, parentColumns = "ID_Account", childColumns = "Account2")
+    @NonNull
     public int Account2;
 
     @ForeignKey(entity = Transaction_Type.class, parentColumns = "ID_Transaction_Type", childColumns = "Transaction_Type")
+    @NonNull
     public int Transaction_Type;
 
     @ColumnInfo(name = "Amount_Money")
+    @NonNull
     public int Amount_Money;
 
     @ColumnInfo(name = "Successful")
+    @NonNull
     public String Successful;
 
     @ColumnInfo(name = "Description")
     public String Description;
 
     @ColumnInfo(name = "Date")
+    @NonNull
     public Long Date;
 
 
