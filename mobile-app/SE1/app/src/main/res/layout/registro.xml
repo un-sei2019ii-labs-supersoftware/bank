@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.activity.MainActivity">
+    tools:context=".presentation.activity.RegistroActivity">
 
     <LinearLayout
         android:layout_width="409dp"
@@ -21,7 +21,7 @@
                 android:id="@+id/id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="usuario" />
+                android:hint="Id" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -47,61 +47,46 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">
 
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/name"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Nombre completo" />
+
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:orientation="vertical">
 
-                                <Button
-                                    android:id="@+id/createButton"
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/username"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Iniciar Sesion" />
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:orientation="vertical">
-
-                                    <com.google.android.material.textfield.TextInputLayout
+                                    android:hint="Nombre de usuario" />
+                                    <LinearLayout
                                         android:layout_width="match_parent"
-                                        android:layout_height="match_parent">
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical">
 
-                                        <LinearLayout
+                                        <com.google.android.material.textfield.TextInputLayout
                                             android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:orientation="vertical">
+                                            android:layout_height="match_parent">
 
-                                            <com.google.android.material.textfield.TextInputLayout
-                                                android:layout_width="match_parent"
-                                                android:layout_height="match_parent">
+                                        <com.google.android.material.textfield.TextInputEditText
+                                            android:id="@+id/balance"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:hint="Balance" />
 
-                                                <LinearLayout
-                                                    android:layout_width="match_parent"
-                                                    android:layout_height="match_parent"
-                                                    android:orientation="vertical">
-
-                                                    <Button
-                                                        android:id="@+id/registroB"
-                                                        android:layout_width="match_parent"
-                                                        android:layout_height="wrap_content"
-                                                        android:text="registrarme" />
-                                                </LinearLayout>
-
-                                                <LinearLayout
-                                                    android:layout_width="match_parent"
-                                                    android:layout_height="match_parent"
-                                                    android:orientation="vertical">
-
-                                                    <com.google.android.material.textfield.TextInputLayout
-                                                        android:layout_width="match_parent"
-                                                        android:layout_height="match_parent">
-
-                                                        <com.google.android.material.textfield.TextInputEditText
-                                                            android:id="@+id/value"
-                                                            android:layout_width="match_parent"
-                                                            android:layout_height="wrap_content"
-                                                            android:hint="Valor" />
+                                <Button
+                                    android:id="@+id/registerButton"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="registrarse" />
 
                                                     </com.google.android.material.textfield.TextInputLayout>
                                                 </LinearLayout>
@@ -109,11 +94,8 @@
                                         </LinearLayout>
                                     </com.google.android.material.textfield.TextInputLayout>
                                 </LinearLayout>
-                            </LinearLayout>
                         </com.google.android.material.textfield.TextInputLayout>
                     </LinearLayout>
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
-        </com.google.android.material.textfield.TextInputLayout>
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
