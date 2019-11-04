@@ -13,7 +13,6 @@ public class Account implements Serializable{
     @ColumnInfo(name = "Balance")
     public int Balance;
 
-
     public int getID_Account() {
         return ID_Account;
     }
