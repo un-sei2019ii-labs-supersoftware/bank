@@ -5,7 +5,6 @@ import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 import java.io.Serializable;
-import java.sql.Date;
 
 @Entity
 public class User implements Serializable {
@@ -41,7 +40,7 @@ public class User implements Serializable {
     public int Account;
 
     @ColumnInfo(name = "Creation_Day")
-    public Date Creation_Day;
+    public Long Creation_Day;
 
     public int getID_User() {
         return ID_User;
@@ -123,11 +122,11 @@ public class User implements Serializable {
         Account = account;
     }
 
-    public Date getCreation_Day() {
+    public Long getCreation_Day() {
         return Creation_Day;
     }
 
-    public void setCreation_Day(Date creation_Day) {
+    public void setCreation_Day(Long creation_Day) {
         Creation_Day = creation_Day;
     }
 }

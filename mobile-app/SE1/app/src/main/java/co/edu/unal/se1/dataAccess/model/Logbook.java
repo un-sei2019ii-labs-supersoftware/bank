@@ -19,7 +19,7 @@ public class Logbook implements Serializable{
     public String Username;
 
     @ColumnInfo(name = "Date")
-    public Date Date;
+    public Long Date;
 
     public int getID_Logbook() {
         return ID_Logbook;
@@ -45,11 +45,11 @@ public class Logbook implements Serializable{
         this.Username = Username;
     }
 
-    public java.sql.Date getDate() {
+    public Long getDate() {
         return Date;
     }
 
-    public void setDate(java.sql.Date Date) {
+    public void setDate(Long Date) {
         this.Date = Date;
     }
 }

@@ -25,9 +25,9 @@ public class UserController {
         userRepository = new UserRepository(context);
 
         final User sourceUser = userRepository.getUserById(sourceId);
-        System.out.println("Source User - ID: " + sourceUser.getId() +
+        System.out.println("Source User - ID: " + sourceUser.getID_User() +
                 ", Name: " + sourceUser.getName() +
-                ", Balance: " + sourceUser.getBalance());
+                ", Balance: " + sourceUser.get());
 
         if (sourceUser.getBalance() >= value) {
 

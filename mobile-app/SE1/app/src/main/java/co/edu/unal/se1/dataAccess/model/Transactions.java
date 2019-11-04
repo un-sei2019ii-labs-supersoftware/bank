@@ -31,7 +31,7 @@ public class Transactions implements Serializable{
     public String Description;
 
     @ColumnInfo(name = "Date")
-    public Date Date;
+    public Long Date;
 
 
     public int getID_Transaction() {
@@ -90,11 +90,11 @@ public class Transactions implements Serializable{
         this.Description = Description;
     }
 
-    public java.util.Date getDate() {
+    public Long getDate() {
         return Date;
     }
 
-    public void setDate(java.sql.Date Date) {
+    public void setDate(Long Date) {
         this.Date = Date;
     }
 }

@@ -1,18 +1,21 @@
 package co.edu.unal.se1.dataAccess.model;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import java.io.Serializable;
-import java.sql.Date;
+
+import javax.annotation.Nonnull;
 
 @Entity
 public class Email implements Serializable{
     @PrimaryKey
+    @NonNull
     public String User_Email;
 
     @ColumnInfo(name = "Password_Date")
-    public Date Password_Date;
+    public Long Password_Date;
 
     @ColumnInfo(name = "State")
     public String State;
@@ -26,11 +29,11 @@ public class Email implements Serializable{
         this.User_Email = User_Email;
     }
 
-    public Date getPassword_Date() {
+    public Long getPassword_Date() {
         return Password_Date;
     }
 
-    public void setPassword_Date(Date Password_Date) {
+    public void setPassword_Date(Long Password_Date) {
         this.Password_Date = Password_Date;
     }
 
@@ -41,4 +44,5 @@ public class Email implements Serializable{
     public void setState(String State) {
         this.State = State;
     }
+
 }

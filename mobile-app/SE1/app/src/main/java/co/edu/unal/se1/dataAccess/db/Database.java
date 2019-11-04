@@ -1,7 +1,6 @@
 package co.edu.unal.se1.dataAccess.db;
 
 import androidx.room.RoomDatabase;
-
 import co.edu.unal.se1.dataAccess.dao.AccountDao;
 import co.edu.unal.se1.dataAccess.dao.ActionDao;
 import co.edu.unal.se1.dataAccess.dao.CityDao;
