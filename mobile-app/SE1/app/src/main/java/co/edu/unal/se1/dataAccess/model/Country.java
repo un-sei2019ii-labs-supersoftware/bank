@@ -1,5 +1,6 @@
 package co.edu.unal.se1.dataAccess.model;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -11,6 +12,7 @@ public class Country implements Serializable{
     public int ID_Country;
 
     @ColumnInfo(name = "Country")
+    @NonNull
     public String Country;
 
     public int getID_Country() {

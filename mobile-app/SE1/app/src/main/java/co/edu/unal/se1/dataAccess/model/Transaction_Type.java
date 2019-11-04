@@ -1,5 +1,6 @@
 package co.edu.unal.se1.dataAccess.model;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -11,6 +12,7 @@ public class Transaction_Type implements Serializable{
     public int ID_Transaction_Type;
 
     @ColumnInfo(name = "Transaction_Type")
+    @NonNull
     public String Transaction_Type;
 
     public int getID_Transaction_Type() {
