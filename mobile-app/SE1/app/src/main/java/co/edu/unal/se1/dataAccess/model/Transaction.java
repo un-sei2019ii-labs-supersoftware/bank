@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.sql.Date;
 
 @Entity
-public class Transactions implements Serializable{
+public class Transaction implements Serializable{
     @PrimaryKey
     public int ID_Transaction;
 
@@ -27,7 +27,7 @@ public class Transactions implements Serializable{
 
     @ColumnInfo(name = "Amount_Money")
     @NonNull
-    public int Amount_Money;
+    public double Amount_Money;
 
     @ColumnInfo(name = "Successful")
     @NonNull
@@ -73,11 +73,11 @@ public class Transactions implements Serializable{
         this.Transaction_Type = Transaction_Type;
     }
 
-    public int getAmount_Money() {
+    public double getAmount_Money() {
         return Amount_Money;
     }
 
-    public void setAmount_Money(int Amount_Money) {
+    public void setAmount_Money(double Amount_Money) {
         this.Amount_Money = Amount_Money;
     }
 

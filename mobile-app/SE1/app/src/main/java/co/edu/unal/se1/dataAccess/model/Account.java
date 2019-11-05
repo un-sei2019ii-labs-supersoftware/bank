@@ -13,7 +13,7 @@ public class Account implements Serializable{
 
     @ColumnInfo(name = "Balance")
     @NonNull
-    public int Balance;
+    public double Balance;
 
     public int getID_Account() {
         return ID_Account;
@@ -23,11 +23,11 @@ public class Account implements Serializable{
         this.ID_Account = ID_Account;
     }
 
-    public int getBalance() {
+    public double getBalance() {
         return Balance;
     }
 
-    public void setBalance(int Balance) {
+    public void setBalance(double Balance) {
         this.Balance = Balance;
     }
 }
