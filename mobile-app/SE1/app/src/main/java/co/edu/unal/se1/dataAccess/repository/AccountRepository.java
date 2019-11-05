@@ -21,19 +21,19 @@ public class AccountRepository {
         return database.accountDao().getAllAcounts();
     }
 
-    public Account getUserById(int id) {
+    public Account getAccountById(int id) {
         return database.accountDao().getAcountsById(id);
     }
 
-    public void createUser(final Account account) {
+    public void createAccount(final Account account) {
         database.accountDao().createAcount(account);
     }
 
-    public void updateUser(Account account) {
+    public void updateAccount(Account account) {
         database.accountDao().updateAcount(account);
     }
 
-    public void deleteUser(int id) {
+    public void deleteAccount(int id) {
         Account account = database.accountDao().getAcountsById(id);
         database.accountDao().deleteAcount(account);
     }
