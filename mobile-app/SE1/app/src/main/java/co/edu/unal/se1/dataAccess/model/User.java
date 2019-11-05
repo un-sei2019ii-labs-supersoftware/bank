@@ -45,8 +45,6 @@ public class User implements Serializable {
     @ColumnInfo(name = "Creation_Day")
     public Long Creation_Day;
 
-    @ColumnInfo(name = "Password")
-    public String Password;
 
     public int getID_User() {
         return ID_User;
@@ -64,13 +62,7 @@ public class User implements Serializable {
         Username = username;
     }
 
-    public String getPassword() {
-        return Password;
-    }
 
-    public void setPassword(String password) {
-        Password = password;
-    }
 
     public String getName() {
         return Name;

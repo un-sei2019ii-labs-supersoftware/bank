@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.textfield.TextInputEditText;
 
 import co.edu.unal.se1.R;
+import co.edu.unal.se1.businessLogic.controller.TransactionController;
 import co.edu.unal.se1.businessLogic.controller.UserController;
 import co.edu.unal.se1.dataAccess.model.Account;
 import co.edu.unal.se1.dataAccess.model.User;
@@ -23,7 +24,7 @@ public class sesionActivity extends AppCompatActivity{
 
         final TextView sourceIdInput = findViewById(R.id.id1);
         final TextView targetIdInput = findViewById(R.id.id2);
-        final TextView valueInput = findViewById(R.id.balance);
+        final TextView valueInput = findViewById(R.id.dinero);
         Button sendMoneyButton = findViewById(R.id.sendMoneyButton);
         sendMoneyButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,8 +35,8 @@ public class sesionActivity extends AppCompatActivity{
                 int sourceId = Integer.parseInt(sourceIdInput.getText().toString());
                 int targetId = Integer.parseInt(targetIdInput.getText().toString());
                 double value = Double.parseDouble(valueInput.getText().toString());
-
-                boolean transaction = userController.sendMoney(sourceId, targetId, value, getApplicationContext());
+                TransactionController transaccion = new TransactionController();
+                boolean transaction = transaccion.sendMoney(sourceId, targetId, value, getApplicationContext());
 
                 if (transaction) {
                     System.out.println("¡Transacción satisfactoria!");

@@ -23,9 +23,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         final TextInputEditText idInput = findViewById(R.id.id);
         final TextInputEditText passwordInput = findViewById(R.id.password);
 
@@ -40,13 +40,12 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"el id del usuario no puede estar vacio",Toast.LENGTH_SHORT );
                 }else{
                     int id_user= Integer.parseInt(id_all);
-                    UserRepository userRepository = new UserRepository(getApplicationContext());
-                    final User usuario = userRepository.getUserById(id_user);
                     String password =passwordInput.getText().toString();
+                    userController = new UserController();
                     if(password.isEmpty()){
                         Toast.makeText(getApplicationContext(),"la contraseña no puede estar vacia no puede estar vacio",Toast.LENGTH_SHORT );
                     }else{
-                        if(usuario.getPassword().equals(password)){
+                        if(userController.verifyLogin(id_user,password,getApplicationContext())){
                             Intent i = new Intent(MainActivity.this , sesionActivity.class);
                             startActivity(i);
                         }else{
@@ -62,8 +61,8 @@ public class MainActivity extends AppCompatActivity {
         sendMoneyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this , RegistroActivity.class);
-                startActivity(i);
+                Intent l = new Intent(MainActivity.this , RegistroActivity.class);
+                startActivity(l);
             }
         });
     }

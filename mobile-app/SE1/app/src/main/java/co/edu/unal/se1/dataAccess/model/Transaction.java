@@ -10,7 +10,7 @@ import java.sql.Date;
 
 @Entity
 public class Transaction implements Serializable{
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     public int ID_Transaction;
 
     @ForeignKey(entity = Account.class, parentColumns = "ID_Account", childColumns = "Account1")
@@ -30,14 +30,12 @@ public class Transaction implements Serializable{
     public double Amount_Money;
 
     @ColumnInfo(name = "Successful")
-    @NonNull
     public String Successful;
 
     @ColumnInfo(name = "Description")
     public String Description;
 
     @ColumnInfo(name = "Date")
-    @NonNull
     public Long Date;
 
 

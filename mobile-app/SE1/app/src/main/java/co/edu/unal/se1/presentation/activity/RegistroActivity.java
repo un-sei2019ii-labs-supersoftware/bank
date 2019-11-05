@@ -12,12 +12,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.textfield.TextInputEditText;
 
 import co.edu.unal.se1.R;
+import co.edu.unal.se1.businessLogic.controller.AccountController;
 import co.edu.unal.se1.businessLogic.controller.UserController;
 import co.edu.unal.se1.dataAccess.model.Account;
 import co.edu.unal.se1.dataAccess.model.User;
 import co.edu.unal.se1.dataAccess.repository.UserRepository;
 public class RegistroActivity extends AppCompatActivity {
     private UserController userController;
+    private AccountController accountController;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,6 +77,9 @@ public class RegistroActivity extends AppCompatActivity {
                                             cuenta.setBalance(bal);
                                             userController = new UserController();
                                             userController.createUser(user, getApplicationContext());
+                                            accountController = new AccountController();
+                                            accountController.createAccount(cuenta,getApplicationContext());
+
                                             Intent i = new Intent(RegistroActivity.this , sesionActivity.class);
                                             startActivity(i);
                                         }

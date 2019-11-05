@@ -2,6 +2,8 @@ package co.edu.unal.se1.businessLogic.controller;
 
 import android.content.Context;
 
+import java.util.Random;
+
 import co.edu.unal.se1.dataAccess.model.Account;
 import co.edu.unal.se1.dataAccess.model.Transaction;
 import co.edu.unal.se1.dataAccess.model.User;
@@ -82,7 +84,6 @@ public class TransactionController {
             System.out.println("Target User (updated) - ID: " + targetUser.getID_User() +
                     ", Name: " + targetUser.getName() +
                     ", Balance: " + updatedTargetAccount.getBalance());
-
             Transaction transaction = new Transaction();
             transaction.setAccount1(targetAccount.getID_Account());
             transaction.setAccount2(sourceAccount.getID_Account());
