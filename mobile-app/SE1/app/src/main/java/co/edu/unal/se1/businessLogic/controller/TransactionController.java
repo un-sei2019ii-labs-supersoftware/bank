@@ -18,7 +18,7 @@ public class TransactionController {
 
         transactionRepository = new TransactionRepository(context);
         transactionRepository.createTransaction(transaction);
-        System.out.println("¡Transaccion creada satisfactoriamente!");
+        System.out.println("¡Transaccion realizada!");
     }
 
     public boolean modifyBalance(int targetId, double value, Context context){
