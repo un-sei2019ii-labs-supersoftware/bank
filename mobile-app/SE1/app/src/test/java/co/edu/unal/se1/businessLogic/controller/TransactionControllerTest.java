@@ -32,4 +32,23 @@ public class TransactionControllerTest extends junit.framework.TestCase{
 
         assertEquals(expected,output);
     }
+
+    @Test
+    public void modifyBalance(){
+        int input = 7654321;
+        double input2 = 10000;
+        double input3 = 5000;
+        Account cuenta = new Account();
+        cuenta.setID_Account(input);
+        cuenta.setBalance(input2);
+        Context context = getApplicationContext();
+        boolean expected = true;
+        boolean output;
+
+        TransactionController transactionController = new TransactionController();
+
+        output = transactionController.modifyBalance(input,input3,context);
+
+        assertEquals(expected,output);
+    }
 }
