@@ -16,6 +16,10 @@ public class TransactionController {
     private AccountRepository accountRepository;
     private UserRepository userRepository;
 
+    public TransactionController() {
+
+    }
+
     public void createTransaction(Transaction transaction, Context context) {
 
         transactionRepository = new TransactionRepository(context);
